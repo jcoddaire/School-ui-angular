@@ -3,15 +3,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Person } from '../models/Person'
+import { Course } from '../models/Course'
 import { MessageService } from '../messages/message.service'
 import { environment } from '../../environments/environment';
 
+// TODO: see if this is necessary.
 const httpOptions = {
     headers: new HttpHeaders ({ 
         'Content-Type': 'application/json',
-        'method': 'GET'
-        
+        'method': 'GET'        
     })
 }
 
@@ -19,23 +19,21 @@ const httpOptions = {
     providedIn: 'root'
 })
 
-export class PeopleService {
+export class CourseService {
 
-    private ROOT_API_URL = environment.apiUrl + '/api/People';
+    private ROOT_API_URL = environment.apiUrl + '/api/Course';
 
     constructor(private http: HttpClient, private messageService: MessageService) {}
 
-    getPeople(): Observable<Person[]> {
+    getCourses(): Observable<Course[]> {
 
-        this.log("Getting people...");
+        this.log("Getting courses...");
 
-        return this.http.get<Person[]>(this.ROOT_API_URL)
+        return this.http.get<Course[]>(this.ROOT_API_URL)
         .pipe(            
-            tap(_ => this.log("fetched people")),
-            catchError(this.handleError('getPeople', []))
+            tap(_ => this.log("fetched courses")),
+            catchError(this.handleError('getCourses', []))
         );
-
-        this.log("gotem!");
     }
 
     /**
@@ -56,11 +54,9 @@ export class PeopleService {
         // Let the app keep running by returning an empty result.
         return of(result as T);
         };
-    }
-
+    }    
     
-    /** Log a HeroService message with the MessageService */
     private log(message: string) {
-        this.messageService.add(`PeopleService: ${message}`);
+        this.messageService.add(`CourseService: ${message}`);
     }
 }
