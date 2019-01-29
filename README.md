@@ -1,6 +1,6 @@
 # School UI
 
-This is the angular front end for the school service, located here: https://github.com/jcoddaire/School.
+This is the angular front end for the school service, located here: https://github.com/jcoddaire/School. Please note, **this is under active development**. It is not complete. I am just storing this on Github in case my PC dies or something.
 
 ## Development server
 
