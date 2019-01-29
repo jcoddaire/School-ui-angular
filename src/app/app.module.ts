@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseComponent } from './Courses/courses.component';
 import { MessagesComponent } from './messages/messages.component';
+import { SiteHeaderComponent } from './site-header/site-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseComponent,
-    MessagesComponent
+    MessagesComponent,
+    SiteHeaderComponent
   ],
   imports: [
     BrowserModule,

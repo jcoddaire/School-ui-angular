@@ -1,19 +1,22 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Credits</th>
-      <th scope="col">Department</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let c of courses">
-      <th scope="row">{{c.courseID}}</th>
-      <td>{{c.name}}</td>
-      <td>{{c.credits}}</td>
-      <td>{{c.departmentID}}</td>
-    </tr>
-  </tbody>
-</table>
 
+  <h1>Courses</h1>
+  <p>Courses offered at {{APPLICATION_TITLE}} are listed below. To register for the upcoming semester, click the Register link above!</p>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Credits</th>
+        <th scope="col">Department</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of courses">
+        <th scope="row">{{c.courseID}}</th>
+        <td>{{c.name}}</td>
+        <td>{{c.credits}}</td>
+        <td>{{c.departmentID}}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'School System';
+  APPLICATION_TITLE = 'Coddaire University';
   API_URL = environment.apiUrl;
 
 }

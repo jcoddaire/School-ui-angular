@@ -9,6 +9,7 @@ import { CourseService } from './courses.service';
 })
 export class CourseComponent implements OnInit {
 
+  APPLICATION_TITLE = "Coddaire University";  
   courses: Course[];
 
   constructor(private courseService: CourseService) { }
