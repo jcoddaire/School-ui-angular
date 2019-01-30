@@ -2,6 +2,12 @@
 
 This is the angular front end for the school service, located here: https://github.com/jcoddaire/School. Please note, **this is under active development**. It is not complete. I am just storing this on Github in case my PC dies or something.
 
+## Screenshots
+
+As noted, this is a work in progress. But here's some screenshots.
+
+![Faculty Screen](./screenshots/Faculty_Page.png)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
