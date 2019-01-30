@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 
-import { Department } from '../models/Department'
+import { Department } from '../models/Department';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class DepartmentsService {
 
     constructor(private http: HttpClient) {}
 
-    getDepartments(): Observable<Department[]> {        
+    getDepartments(): Observable<Department[]> {
 
         return this.http.get<Department[]>(this.ROOT_API_URL);
     }

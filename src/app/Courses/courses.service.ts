@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Course } from '../models/Course'
-import { MessageService } from '../messages/message.service'
+import { Course } from '../models/Course';
+import { MessageService } from '../messages/message.service';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -19,11 +19,8 @@ export class CourseService {
 
     getCourses(): Observable<Course[]> {
 
-        this.log("Getting courses...");
-
         return this.http.get<Course[]>(this.ROOT_API_URL)
-        .pipe(            
-            tap(_ => this.log("fetched courses")),
+        .pipe(
             catchError(this.handleError('getCourses', []))
         );
     }
@@ -46,8 +43,8 @@ export class CourseService {
         // Let the app keep running by returning an empty result.
         return of(result as T);
         };
-    }    
-    
+    }
+
     private log(message: string) {
         this.messageService.add(`CourseService: ${message}`);
     }

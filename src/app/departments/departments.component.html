@@ -1,3 +1,22 @@
-<p>
-  departments works!
-</p>
+
+  <h1>Departments</h1>
+  <p>Check out all the departments at the school.</p>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Annual Budget</th>
+        <th scope="col">Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of departments">
+        <th scope="row">{{d.departmentID}}</th>
+        <td>{{d.name}}</td>
+        <td>{{d.budget | currency }}</td>
+        <td>{{d.createdDate | date }}</td>
+      </tr>
+    </tbody>
+  </table>
