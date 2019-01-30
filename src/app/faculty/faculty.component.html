@@ -1,20 +1,19 @@
 
-  <h1>Faculty Members</h1>
-  <p>Meet our staff!</p>
+<h1>Faculty Members</h1>
+<p>Meet our staff!</p>
 
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Hire Date</th>
-      </tr>
-    </thead>
-    <tbody>      
-      <tr *ngFor="let f of faculty" [ngClass]="{'terminated': f.terminated}">
-        <th scope="row">{{f.instructorID}}</th>
-        <td>{{f.firstName + " " + f.lastName}}</td>        
-        <td>{{f.hireDate | date:'MM/dd/yyyy' }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container">    
+      <div class="row">
+        <div class="col-md-6" *ngFor="let f of faculty">
+            <div class="row borderPretty">
+                <div class="col-md-6 class-border-right">
+                    <p>{{f.firstName + " " + f.lastName}}</p>
+                    <p>School of {{f.courses[0].departmentName}}</p>
+                    <p>Hired: {{f.hireDate | date:'MM/dd/yyyy' }}</p>            
+                </div>
+                <div class="col-md-4">
+                  <p *ngFor="let c of f.courses">{{c.name}}</p>
+                </div>
+            </div>
+        </div>
+</div>
