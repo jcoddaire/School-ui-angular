@@ -7,14 +7,6 @@ import { Course } from '../models/Course'
 import { MessageService } from '../messages/message.service'
 import { environment } from '../../environments/environment';
 
-// TODO: see if this is necessary.
-const httpOptions = {
-    headers: new HttpHeaders ({ 
-        'Content-Type': 'application/json',
-        'method': 'GET'        
-    })
-}
-
 @Injectable({
     providedIn: 'root'
 })

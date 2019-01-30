@@ -14,10 +14,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="./courses">Courses</a></li>
-        <li><a href="./faculty">Faculty</a></li>
-        <li><a href="./students">Students</a></li>
-        <li><a href="./register">Register</a></li>
+        <li [ngClass]="{'active':activeTab==='courses'}"><a routerLink="/courses" (click)="search('courses')">Courses</a></li>
+        <li [ngClass]="{'active':activeTab==='departments'}"><a routerLink="/departments" (click)="search('departments')">Departments</a></li>
+        <li [ngClass]="{'active':activeTab==='faculty'}"><a routerLink="/faculty" (click)="search('faculty')">Faculty</a></li>
+        <li [ngClass]="{'active':activeTab==='students'}"><a routerLink="/students" (click)="search('students')">Students</a></li>
+        <li [ngClass]="{'active':activeTab==='register'}"><a routerLink="/register" (click)="search('register')">Register</a></li>
       </ul>
       
     </div><!-- /.navbar-collapse -->
