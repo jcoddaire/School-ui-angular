@@ -7,16 +7,16 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Name</th>
-        <th scope="col">Annual Budget</th>
         <th scope="col">Created</th>
+        <th scope="col">Annual Budget</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let d of departments">
         <th scope="row">{{d.departmentID}}</th>
-        <td>{{d.name}}</td>
-        <td>{{d.budget | currency }}</td>
+        <td>School of {{d.name}}</td>
         <td>{{d.createdDate | date }}</td>
+        <td>{{d.budget | currency }}</td>
       </tr>
     </tbody>
   </table>

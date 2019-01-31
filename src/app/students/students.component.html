@@ -1,3 +1,36 @@
-<p>
-  students works!
-</p>
+
+  <h1>Students</h1>
+  <p>Check out all the students at the school. Please note this only lists <b>current students</b> for the {{currentSemester}} {{currentYear}} semester.</p>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Enrollment Date</th>
+        <th scope="col">Current Courses</th>
+        <th scope="col">GPA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of students">
+        <th scope="row">{{s.studentID}}</th>
+        <td>{{s.firstName + " " + s.lastName}}</td>
+        <td>{{s.enrollmentDate | date }}</td>
+        <td>
+          <!--No longer necessary but it was a fun learning experience.-->
+          <span *ngIf="!s.courses.length > 0">
+            <p style="color: red;">No classes found!</p>
+          </span>
+          <span *ngIf="s.courses.length > 0"><p *ngFor="let c of s.courses">
+            {{c.course.name}}
+          </p></span>
+        </td>
+        <td>
+            <p *ngFor="let c of s.courses">
+              {{c.grade | number: '1.1'}}
+            </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
