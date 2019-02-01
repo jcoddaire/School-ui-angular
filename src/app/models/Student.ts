@@ -7,4 +7,5 @@ export class Student {
     lastName: string;
     enrollmentDate: Date;
     courses: StudentCourse[];
+    studentClass: string;
 }

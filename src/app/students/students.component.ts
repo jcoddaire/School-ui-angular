@@ -30,6 +30,7 @@ export class StudentsComponent implements OnInit {
     this.studentService.getStudents().subscribe(d => {
         this.students = d;
         this.filterStudentsByCurrentSemester();
+        this.assignClasses();
       });
   }
 
@@ -54,8 +55,54 @@ export class StudentsComponent implements OnInit {
     }
   }
 
+  // Assign class status ("Freshmen, Sophomore, junior, Senior") based on the Enrolled date.
+  // TODO: update this to consider credits, ie 30, 60, 90, 120.
+  assignClasses(): void {
+    if (this.students) {
+      for (let yy = 0; yy < this.students.length; yy++) {
+        const today = new Date();
+        const eDate = new Date(this.students[yy].enrollmentDate);
+        const yearsEnrolled = this.monthDiff(eDate, today) / 12;
+
+        switch (true) {
+          case (yearsEnrolled < 1):
+            this.students[yy].studentClass = 'Freshmen';
+            break;
+          case (yearsEnrolled < 2):
+            this.students[yy].studentClass = 'Sophomore';
+            break;
+          case (yearsEnrolled < 3):
+            this.students[yy].studentClass = 'Junior';
+            break;
+          case (yearsEnrolled < 4):
+            this.students[yy].studentClass = 'Senior';
+            break;
+          case (yearsEnrolled < 5):
+            this.students[yy].studentClass = 'Super Senior';
+            break;
+          case (yearsEnrolled < 6):
+            this.students[yy].studentClass = 'Super Duper Senior';
+            break;
+          case (yearsEnrolled >= 6):
+            let superSeniorString = 'Super Duper';
+            superSeniorString += '<sup>' + Math.floor(yearsEnrolled - 4) + '</sup>';
+            this.students[yy].studentClass = superSeniorString + ' Senior';
+            break;
+        }
+      }
+    }
+  }
+
   private log(message: string) {
     this.messageService.add(`StudentsComponent: ${message}`);
+  }
+
+  monthDiff(d1: Date, d2: Date): number {
+    let months;
+    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    months -= d1.getMonth() + 1;
+    months += d2.getMonth();
+    return months <= 0 ? 0 : months;
   }
 
   getYear(): void {
