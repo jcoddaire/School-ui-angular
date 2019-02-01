@@ -2,21 +2,15 @@
   <h1>Departments</h1>
   <p>Check out all the departments at the school.</p>
 
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Created</th>
-        <th scope="col">Annual Budget</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let d of departments">
-        <th scope="row">{{d.departmentID}}</th>
-        <td>School of {{d.name}}</td>
-        <td>{{d.createdDate | date }}</td>
-        <td>{{d.budget | currency }}</td>
-      </tr>
-    </tbody>
-  </table>
+
+<div class="container">    
+  <div class="row borderPretty" *ngFor="let d of departments">
+      <div class="col-md-4">
+        <img src="/assets/images/dpt-{{d.name.replace(' ', '_') | lowercase }}.jpg" alt="School of {{d.name}}" width="100%" height="100%" >
+      </div>
+      <div class="col-md-8">
+        <h3>School of {{d.name}}</h3>
+        <p>Founded on {{d.createdDate | date:'longDate' }}, the School of {{d.name}} has been the home to some of the formost experts in the field, including Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>        
+  </div>
+</div>
