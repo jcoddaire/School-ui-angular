@@ -14,7 +14,7 @@ import { MessageService } from '../messages/message.service';
 })
 export class CourseComponent implements OnInit {
 
-  APPLICATION_TITLE = 'Coddaire University';
+  APPLICATION_TITLE = 'University of Farmington';
   courses: Course[];
   departments: Department[];
 
