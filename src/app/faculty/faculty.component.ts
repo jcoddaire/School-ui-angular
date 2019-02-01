@@ -48,6 +48,7 @@ export class FacultyComponent implements OnInit {
       for (let ii = 0; ii < this.faculty.length; ii++) {
         if (this.faculty[ii].terminated) {
           this.faculty.splice(ii, 1);
+          ii--;
         }
       }
   }

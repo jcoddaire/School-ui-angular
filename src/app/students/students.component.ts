@@ -39,9 +39,11 @@ export class StudentsComponent implements OnInit {
       for (let rr = 0; rr < this.students[ii].courses.length; rr++) {
         if (this.currentSemester !== this.students[ii].courses[rr].enrolledSemester) {
           this.students[ii].courses.splice(rr, 1);
+          rr--;
         } else {
           if (this.currentYear !== this.students[ii].courses[rr].enrolledYear) {
             this.students[ii].courses.splice(rr, 1);
+            rr--;
           }
         }
       }
@@ -49,8 +51,9 @@ export class StudentsComponent implements OnInit {
 
     // iterate again and remove students with no current classes.
     for (let ii = 0; ii < this.students.length; ii++) {
-      if (this.students[ii].courses.length <= 0) {
+      if (this.students[ii].courses === null || this.students[ii].courses.length <= 0) {
         this.students.splice(ii, 1);
+        ii--;
       }
     }
   }
