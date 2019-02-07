@@ -1,12 +1,37 @@
 
-  <h1>Departments</h1>
-  <p>Check out all the departments at the school.</p>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+          <h1>Departments</h1>
+          <p>Check out all the departments at the school.</p>
+      </div>
+      <div class="col-md-2">
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#newDepartmentForm" 
+          aria-expanded="false" aria-controls="newDepartmentForm">New Department</button>
+      </div>
+    </div>
+  </div>
 
+<form id="newDepartmentForm" class="collapse text-center">
+    <div class="form-group">
+        <label class="text-left">Name:
+        <input #currentName class="form-control"/>
+      </label>
+    </div>
+    <div class="form-group">
+      <label class="text-left">Budget:
+        <input #currentBudget class="form-control"/>
+      </label>
+    </div>    
+    <button type="submit" class="btn btn-primary" (click)="addDepartment(currentName.value, currentBudget.value);">Add</button>
+
+</form>
 
 <div class="container">    
   <div class="row borderPretty" *ngFor="let d of departments">
       <div class="col-md-4">
-        <img src="/assets/images/dpt-{{d.name.replace(' ', '_') | lowercase }}.jpg" alt="School of {{d.name}}" width="100%" height="100%" >
+        <img src="/assets/images/dpt-{{d.name | lowercase }}.jpg" alt="School of {{d.name}}" width="100%" height="100%" >
       </div>
       <div class="col-md-8">
         <h3>School of {{d.name}}</h3>
