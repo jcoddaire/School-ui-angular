@@ -48,7 +48,7 @@ export class DepartmentsComponent implements OnInit {
       return;
     }
 
-    const cDept = new Department();
+    const cDept = <Department>{};
     cDept.name = name;
     cDept.budget = budget;
     cDept.createdDate = new Date();
